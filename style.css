@@ -252,6 +252,20 @@ a:hover{
     color: #FFFFFF;
 }
 /* ARCHIVE */
+.posts_archive::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+.posts_archive::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 20px;
+}
+.posts_archive::-webkit-scrollbar-thumb {
+    background-color: transparent;
+}
+#archive{
+    padding: 100px 0;
+}
 #archive{
     margin-top: -2px;
     background-color: #000;
@@ -270,10 +284,12 @@ a:hover{
     line-height: 33px;
 }
 .posts_archive{
+    height: 600px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     column-gap: 20px;
     row-gap: 70px;
+    overflow-y: scroll;
 }
 .post_arch a{
     color: #fff;
@@ -429,6 +445,9 @@ footer{
     }
     .mais_info_detalhes{
         width: auto;
+    }
+    .post_arch {
+        height: auto;
     }
 }
 @media only screen and (max-width: 500px) {
