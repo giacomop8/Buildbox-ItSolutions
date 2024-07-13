@@ -4,7 +4,7 @@
         <h1 class="titulo_arch_categoria"><?php echo esc_html(single_term_title()); ?></h1>
         <p><?php echo esc_html(term_description()); ?></p>
     </div>
-    <div class="posts_archive flex gap_20">
+    <div class="posts_archive flex">
         <?php
             if(have_posts()) : while(have_posts()) : the_post();
             ?>

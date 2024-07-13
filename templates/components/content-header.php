@@ -11,31 +11,33 @@
     </head>
     <body>
         <header id="secao_menu">
-            <div id="limite_menu" class="flex align_center justify_between">
-                <section class="logo flex align_center justify_center">
-                    <?php
-                        $logo_id = get_theme_mod('custom_logo');
-    
-                        if ($logo_id) {
-                            echo get_custom_logo();
-                        } else {
-                            $logo_url = get_template_directory_uri() . '/img/play_logo.png'; // Substitua pela URL da imagem desejada
-                            echo '<img src="' . esc_url($logo_url) . '" alt="Logomarca">';
-                        }
-                    ?>
-                </section>
-                <section id="menu">
-                    <?php
-                        if (has_nav_menu('menu_principal')) {
-                            wp_nav_menu(array(
-                                'menu_class' => 'menu_principal',
-                                'theme_location' => 'menu_principal',
-                                'container' => false
-                            ));
-                        } else {
-                            echo '<p>Adicione páginas ao Menu.</p>';
-                        }
-                    ?>
-                </section>
+            <div class="fixa">
+                <div id="limite_menu" class="flex align_center justify_between">
+                    <section class="logo flex align_center justify_center">
+                        <?php
+                            $logo_id = get_theme_mod('custom_logo');
+        
+                            if ($logo_id) {
+                                echo get_custom_logo();
+                            } else {
+                                $logo_url = get_template_directory_uri() . '/img/play_logo.png'; // Substitua pela URL da imagem desejada
+                                echo '<img src="' . esc_url($logo_url) . '" alt="Logomarca">';
+                            }
+                        ?>
+                    </section>
+                    <section id="menu">
+                        <?php
+                            if (has_nav_menu('menu_principal')) {
+                                wp_nav_menu(array(
+                                    'menu_class' => 'menu_principal',
+                                    'theme_location' => 'menu_principal',
+                                    'container' => false
+                                ));
+                            } else {
+                                echo '<p>Adicione páginas ao Menu.</p>';
+                            }
+                        ?>
+                    </section>
+                </div>
             </div>
         </header>

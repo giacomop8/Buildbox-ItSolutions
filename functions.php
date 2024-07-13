@@ -17,6 +17,9 @@ if(!class_exists('Play')){
             add_action('init', array($this,'editar_post_type_post'));
             add_action('after_setup_theme',array($this,'adicionar_menu'));        
             add_action('wp_enqueue_scripts',array($this,'scripts'));
+
+            // Remover menu superior
+            add_filter('show_admin_bar', '__return_false');
         }
         
         public function editar_post_type_post() {

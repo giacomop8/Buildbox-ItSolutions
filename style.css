@@ -6,8 +6,8 @@ Text Domain: bx-desafio
 Global Prefix: bx_desafio_
 */
 @font-face {
-    font-family: 'CircularSpotifyTxT-Med';
     src: url('fonts/CircularSpotifyTxT-Med.ttf') format('truetype');
+    font-family: 'CircularSpotifyTxT-Med';
 }
 html,body{
     margin: 0;
@@ -15,6 +15,7 @@ html,body{
     background-color: #000;
     overflow-wrap: break-word;
     font-family: 'CircularSpotifyTxT-Med';
+    width: 100%;
     height: 100%;
     font-size: 1em;
 }
@@ -59,19 +60,31 @@ a:hover{
 
 /* MENU */
 #secao_menu{
+    width: 100%;
+    color: #fff;
+    height: 70px;
+    position: relative;
+}
+.fixa{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 19px 0;
+    z-index: 4;
+    opacity: 0.9;
     background-color: #060809;
     color: #fff;
-    padding: 10px 0;
 }
 #limite_menu{
     margin: auto;
     padding: 0 100px;
+    width: auto;
 }
 .logo p{
     font-size: 1.8em;
 }
 .custom-logo{
-    width: 100px;
+    width: 80px;
     height: auto;
 }
 .menu_principal{
@@ -101,6 +114,7 @@ a:hover{
     position: relative;
     margin-top: -2px;
     padding-top: 100px;
+    width: 100%;
     height: 600px;
 }
 .efeito_escuro{
@@ -164,7 +178,7 @@ a:hover{
     background-color: #FF0000;
     box-shadow: 3px 3px 10px #00000054;
     color: #fff;
-    max-width: 270px;
+    width: 270px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -244,7 +258,7 @@ a:hover{
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 100px;
-    padding: 100px;
+    padding: 150px 100px;
 }
 .titulo_arch_categoria{
     color: #FF0000;
@@ -258,6 +272,8 @@ a:hover{
 .posts_archive{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 20px;
+    row-gap: 70px;
 }
 .post_arch a{
     color: #fff;
@@ -295,6 +311,14 @@ a:hover{
 #video_single iframe{
     width: 100%;
     height: 600px;
+}
+.sinopse{
+    color: #fff;
+    font-weight: 200;
+    margin: auto;
+    font-size: 1em;
+    max-width: 700px;
+    line-height: 30px;
 }
 /* FOOTER */
 footer{
@@ -402,6 +426,9 @@ footer{
     }
     .limite_footer{
         text-align: center;
+    }
+    .mais_info_detalhes{
+        width: auto;
     }
 }
 @media only screen and (max-width: 500px) {
