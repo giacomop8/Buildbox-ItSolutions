@@ -97,59 +97,54 @@ if(!class_exists('Videos')){
         }
 
         public function save_post_video($post_id) {
-            
+            // Verifica se o tipo de post é 'video'
             if ('video' !== get_post_type($post_id)) {
                 return;
             }
-
-            if(isset($_POST['video_nonce'])) {
-                if(!wp_verify_nonce($_POST['video_nonce'], 'video_nonce')) {
-                    return;
-                }
-            }
-
-            if(defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+        
+            // Verifica se o nonce do vídeo está definido e é válido
+            if (isset($_POST['video_nonce']) && !wp_verify_nonce($_POST['video_nonce'], 'video_nonce')) {
                 return;
             }
-
-            if(isset($_POST['post_type']) && ($_POST['post_type'] === 'video')) {
-                if (! current_user_can('edit_page', $post_id)) {
-                    return;
-                } elseif (! current_user_can('edit_post', $post_id)) {
+        
+            // Verifica se a ação atual é de autosave
+            if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+                return;
+            }
+        
+            // Verifica as permissões do usuário
+            if (isset($_POST['post_type']) && ($_POST['post_type'] === 'video')) {
+                if (!current_user_can('edit_page', $post_id) && !current_user_can('edit_post', $post_id)) {
                     return;
                 }
             }
-
+        
+            // Verifica se a ação é de edição de post
             if (isset($_POST['action']) && ($_POST['action'] == 'editpost')) {
                 $video_nonce = isset($_POST['video_nonce']) ? $_POST['video_nonce'] : '';
-            
+        
+                // Verifica se o nonce do vídeo é válido
                 if (!wp_verify_nonce($video_nonce, 'video_nonce')) {
                     return;
                 }
-            
+        
                 $bx_play_video_duration = "bx_play_video_duration";
                 $bx_play_video_ID = "bx_play_video_ID";
         
-                $antigo_texto = get_post_meta($post_id, $bx_play_video_duration, true);
                 $novo_texto = isset($_POST[$bx_play_video_duration]) ? sanitize_text_field($_POST[$bx_play_video_duration]) : '';
-        
-                $antigo_link = get_post_meta($post_id, $bx_play_video_ID, true);
                 $novo_link = isset($_POST[$bx_play_video_ID]) ? sanitize_text_field($_POST[$bx_play_video_ID]) : '';
         
-                if (empty($novo_texto)) {
-                    update_post_meta($post_id, $bx_play_video_duration, '');
-                } else {
-                    update_post_meta($post_id, $bx_play_video_duration, $novo_texto, $antigo_texto);
+                // Atualiza os metadados apenas se os novos valores não estiverem vazios
+                if (!empty($novo_texto)) {
+                    update_post_meta($post_id, $bx_play_video_duration, $novo_texto);
                 }
         
-                if (empty($novo_link)) {
-                    update_post_meta($post_id, $bx_play_video_ID, '');
-                } else {
-                    update_post_meta($post_id, $bx_play_video_ID, $novo_link, $antigo_link);
+                if (!empty($novo_link)) {
+                    update_post_meta($post_id, $bx_play_video_ID, $novo_link);
                 }
             }
-            
         }
+        
 
 
         // TAXONOMIAS

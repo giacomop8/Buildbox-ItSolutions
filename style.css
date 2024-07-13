@@ -12,6 +12,7 @@ Global Prefix: bx_desafio_
 html,body{
     margin: 0;
     padding: 0;
+    background-color: #000;
     overflow-wrap: break-word;
     font-family: 'CircularSpotifyTxT-Med';
     height: 100%;
@@ -98,7 +99,9 @@ a:hover{
 /* DESTAQUE */
 #secao_destaque{
     position: relative;
-    height: 600px;;
+    margin-top: -2px;
+    padding-top: 100px;
+    height: 600px;
 }
 .efeito_escuro{
     position: absolute;
@@ -137,6 +140,7 @@ a:hover{
     border-radius: 5px;
     font-weight: 500;
     box-shadow: 3px 3px 10px #00000054;
+    padding: 7px 15px;
 }
 .duracao_detalhe{
     background-color: transparent;
@@ -145,7 +149,7 @@ a:hover{
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 10px 15px;
+    padding: 7px 15px;
     border: 1px solid #fff;
     border-radius: 5px;
     font-weight: 500;
@@ -169,6 +173,10 @@ a:hover{
     border-radius: 5px;
     font-weight: 500;
     font-size: 1.1em;
+    transition: 0.4s;
+}
+.mais_info_detalhes:hover{
+    background-color: #9f0e0e;
 }
 .sem_resultados{
     z-index: 2;
@@ -203,6 +211,7 @@ a:hover{
     padding: 100px 0;
 }
 #secao_listas{
+    margin-top: -2px;
     position: relative;
     width: auto;
     background-color: #060809;
@@ -230,6 +239,7 @@ a:hover{
 }
 /* ARCHIVE */
 #archive{
+    margin-top: -2px;
     background-color: #000;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -266,6 +276,7 @@ a:hover{
 }
 /* SINGLE */
 #single{
+    margin-top: -2px;
     background-color: #000;
     padding: 50px 100px;
 }
@@ -287,8 +298,9 @@ a:hover{
 }
 /* FOOTER */
 footer{
+    margin-top: -2px;
     color: #fff;
-    background-color: #121212;
+    background-color: #111;
     padding: 100px;
 }
 .limite_footer{
@@ -354,6 +366,7 @@ footer{
         font-size: 0.8em;
     }
     #categorias_mobile{
+        margin-top: -2px;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         gap: 30px;
