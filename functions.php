@@ -11,10 +11,9 @@ if(!class_exists('Play')){
         public function __construct() {
 
             require_once(get_template_directory() . '/php/class/ClassVideos.php');
-            require_once(get_template_directory() . '/php/class/ClassLayouts.php');
 
             // GANCHOS DE AÇÃO
-            
+
             add_action('init', array($this,'editar_post_type_post'));
             add_action('after_setup_theme',array($this,'adicionar_menu'));        
             add_action('wp_enqueue_scripts',array($this,'scripts'));
@@ -24,8 +23,6 @@ if(!class_exists('Play')){
             
             $args = get_post_type_object('post');
             $args->show_in_menu = false;
-        
-            // Atualize as configurações do tipo de post 'post'
             register_post_type('post', $args);
         }
         

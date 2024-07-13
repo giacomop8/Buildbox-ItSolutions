@@ -9,7 +9,7 @@
     </head>
     <body>
         <header id="secao_menu">
-            <div id="limite_menu" class="flex limite_geral align_center justify_between">
+            <div id="limite_menu" class="flex align_center justify_between">
                 <section class="logo flex align_center justify_center">
                     <?php
                         $logo_id = get_theme_mod('custom_logo');

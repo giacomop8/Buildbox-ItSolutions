@@ -33,20 +33,18 @@
                                 
                                 ?>
                                 <section class="post_lista flex column justify_left gap_30">
-                                    <div class="flex gap_20 wrap">
+                                    <div class="flex gap_20 column wrap">
                                         <div>
                                             <a href="<?php echo get_permalink(); ?>">
                                                 <?php the_post_thumbnail('full', array('class' => 'thumb_lista')); ?>
                                             </a>
                                         </div>
+                                        <span class="duracao_detalhe">
                                             <?php
-                                            $bx_play_video_duration = get_post_meta(get_the_ID(), 'bx_play_video_duration', true);
+                                                $bx_play_video_duration = get_post_meta(get_the_ID(), 'bx_play_video_duration', true);
+                                                echo $bx_play_video_duration;
                                             ?>
-                                            <span class="duracao_detalhe">
-                                                <?php echo $bx_play_video_duration; ?>
-                                            </span>
-                                            <?php
-                                        ?>
+                                        </span>
                                     </div>
                                     <a href="<?php echo get_permalink(); ?>"><?php the_title('<h1 class="titulo_lista">', '</h1>'); ?></a>
                                 </section>

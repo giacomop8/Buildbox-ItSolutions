@@ -6,22 +6,25 @@
             <section class="detalhes_single flex column justify_left gap_20">
                 <div class="flex gap_10 wrap">
                     <?php
-                        $terms = get_the_terms(get_the_ID(), 'video_type');
+                        $termos = get_the_terms(get_the_ID(), 'video_type');
 
-                        if ($terms && !is_wp_error($terms)) {
-                            foreach ($terms as $term) { ?>
-                                <span class="categoria_detalhe">
-                                    <?php echo $term->name; ?>
-                                </span>
+                        if ($termos && !is_wp_error($termos)) {
+                            foreach ($termos as $termo) { 
+                                
+                                $link_archive = get_term_link($termo);
+                                ?>
+                                <a class="categoria_detalhe" href="<?php echo esc_url($link_archive); ?>">
+                                    <span>
+                                        <?php echo $termo->name; ?>
+                                    </span>
+                                </a>
                             <?php }
                         }
                         $bx_play_video_duration = get_post_meta(get_the_ID(), 'bx_play_video_duration', true);
-                        ?>
-                        <span class="duracao_detalhe">
-                            <?php echo $bx_play_video_duration; ?>
-                        </span>
-                        <?php
                     ?>
+                    <span class="duracao_detalhe">
+                        <?php echo $bx_play_video_duration; ?>
+                    </span>
                 </div>
                 <a href="<?php echo get_permalink(); ?>"><?php the_title('<h1 class="titulo_single">', '</h1>'); ?></a>
             </section>

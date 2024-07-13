@@ -24,9 +24,11 @@
                                     
                                     $link_archive = get_term_link($termo);
                                     ?>
-                                    <span class="categoria_detalhe">
-                                        <a href="<?php echo esc_url($link_archive); ?>"><?php echo $termo->name; ?></a>
-                                    </span>
+                                    <a class="categoria_detalhe" href="<?php echo esc_url($link_archive); ?>">
+                                        <span>
+                                            <?php echo $termo->name; ?>
+                                        </span>
+                                    </a>
                                 <?php }
                             }
                             $bx_play_video_duration = get_post_meta(get_the_ID(), 'bx_play_video_duration', true);
@@ -45,7 +47,7 @@
             endwhile;
         else:
             ?>
-                <section class="sem_resultados">
+                <section class="sem_resultados justify_center">
                     <p>Sem vídeos cadastrados</p>
                 </section>
             <?php

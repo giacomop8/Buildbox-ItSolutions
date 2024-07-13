@@ -93,7 +93,7 @@ if(!class_exists('Videos')){
         }
         
         public function exibir_metabox_video($post) {
-            require_once( PATH . '/templates/metaboxes/bx_play.php');
+            require_once( get_template_directory() . '/templates/metaboxes/bx_play.php');
         }
 
         public function save_post_video($post_id) {
@@ -178,7 +178,6 @@ if(!class_exists('Videos')){
                 'rewrite'           => array('slug' => 'geral'), // Slug da taxonomia na URL.
             ];
 
-            // Registrar a taxonomia para o post type 'video'
             register_taxonomy('video_type', array('video'), $args);
         }
 
@@ -191,14 +190,14 @@ if(!class_exists('Videos')){
                 'Séries'
             );
 
-            // Itera sobre as categorias e as cria, se ainda não existirem
             foreach ($categorias as $index => $categoria) {
-                $term_exists = term_exists($categoria, 'video_type');
-                if (!$term_exists) {
-                    // Se a categoria não existir, crie-a
+
+                $existe = term_exists($categoria, 'video_type');
+
+                if (!$existe) {
+
                     $term_id = wp_insert_term($categoria, 'video_type');
 
-                    // Se for a primeira categoria, defina-a como a categoria padrão
                     if ($index === 0 && !is_wp_error($term_id)) {
                         update_option('default_category', $term_id['term_id']);
                     }
